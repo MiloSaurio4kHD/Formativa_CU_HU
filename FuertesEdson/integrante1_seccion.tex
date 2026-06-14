@@ -1,0 +1,198 @@
+% ============================================================
+%  SECCIÓN -- PLANIFICACIÓN DE LA ELICITACIÓN (PASO 1)
+%  Responsable: Integrante 1
+% ============================================================
+\section{PLANIFICACIÓN DE LA ELICITACIÓN}
+
+\subsection{Selección y Justificación de Técnicas}
+
+Para la elicitación de requisitos del sistema MundiPets se seleccionaron dos técnicas: la \textbf{entrevista estructurada} y el \textbf{cuestionario digital}, complementadas con una sesión de \textbf{brainstorming} grupal. La selección se fundamenta en los criterios propuestos por IREB CPRE FL v3.1 \cite{ireb2024}: tipo de sistema, disponibilidad de \textit{stakeholders} y fase del proyecto.
+
+La entrevista estructurada se eligió porque MundiPets maneja información sanitaria sensible (historial médico, vacunación, enfermedades hereditarias) cuya correcta interpretación exige el criterio de un experto del dominio. Médicos veterinarios y veterinarios en ejercicio fueron, por tanto, los entrevistados prioritarios, dado que poseen el conocimiento técnico necesario para validar qué datos clínicos son relevantes y cuáles son sensibles. Según Pohl \cite{pohl2025}, la entrevista estructurada permite profundizar en temas complejos mediante preguntas abiertas organizadas por bloques temáticos, lo cual resulta apropiado para un dominio especializado como la salud animal.
+
+El cuestionario digital se incorporó para recoger la perspectiva de los usuarios potenciales (propietarios de mascotas) de forma más amplia y con menor costo de tiempo. Esta técnica aporta una visión complementaria centrada en la experiencia del usuario final: qué información considera privada, qué factores influyen en sus decisiones de adopción o cruce y qué problemas ha enfrentado en procesos informales.
+
+Como limitación, se asumió que la entrevista estructurada depende fuertemente de la disponibilidad y disposición de los profesionales veterinarios, por lo que el número de sesiones quedó acotado a las que pudieron coordinarse dentro del plazo de la práctica. Para el cuestionario, la limitación principal es el tamaño reducido de la muestra, que no permite generalizar estadísticamente, aunque sí identificar tendencias cualitativas relevantes para esta fase exploratoria del PFC.
+
+\begin{table}[H]
+	\centering
+	\caption{Técnicas de elicitación seleccionadas y justificación}
+	\label{tab:tecnicas_elicitacion}
+	\begin{tabular}{|p{3cm}|p{6.2cm}|p{4.3cm}|}
+		\hline
+		\textbf{Técnica} & \textbf{Justificación de selección} & \textbf{Aporte esperado} \\ \hline
+		Entrevista estructurada & Permite obtener criterio experto sobre el dominio clínico-veterinario, indispensable para definir qué información médica debe registrar la plataforma \cite{pohl2025}. & Requisitos funcionales relacionados con el perfil médico, historial de vacunación, enfermedades hereditarias y compatibilidad genética. \\ \hline
+		Cuestionario digital & Recoge de forma eficiente la perspectiva de usuarios potenciales (propietarios de mascotas) sobre privacidad, adopción y cruce \cite{ireb2024}. & Requisitos relacionados con privacidad de datos, criterios de decisión del usuario y problemas de procesos informales de adopción. \\ \hline
+		Brainstorming grupal & Permite al equipo consolidar y agrupar por afinidad las ideas surgidas durante las entrevistas y el análisis preliminar \cite{pohl2025}. & Identificación temprana de categorías de requisitos (salud, compatibilidad, privacidad, comunicación). \\ \hline
+	\end{tabular}
+\end{table}
+
+\subsection{Criterios de Selección de Participantes}
+
+Los participantes de las entrevistas se seleccionaron bajo los siguientes criterios:
+
+\begin{itemize}[leftmargin=*]
+	\item \textbf{Pertinencia profesional:} se priorizó a médicos veterinarios y veterinarios en ejercicio activo, dado que el sistema MundiPets gestiona información clínica sensible que requiere validación experta sobre qué datos son médicamente relevantes para procesos de adopción y cruce.
+	\item \textbf{Representatividad del usuario final:} se incluyó a propietarios de mascotas sin formación veterinaria, como usuarios potenciales directos de la plataforma, para capturar su percepción sobre privacidad, confianza y toma de decisiones.
+	\item \textbf{Accesibilidad y disponibilidad:} se seleccionaron profesionales y usuarios con disponibilidad confirmada dentro del cronograma de la práctica, ubicados en el entorno cercano al equipo (cantón Quevedo y alrededores).
+	\item \textbf{Diversidad de perspectivas:} se buscó que los cinco entrevistados cubrieran al menos dos roles distintos (veterinario y usuario potencial) para evitar sesgos de un único punto de vista.
+\end{itemize}
+
+Como resultado de la aplicación de estos criterios, se realizaron cinco entrevistas: tres a médicos veterinarios/veterinarios en ejercicio (Entrevistas \#1, \#2 y \#3) y dos a usuarios potenciales propietarios de mascotas (Entrevistas \#4 y \#5), conforme se detalla en la Sección~\ref{sec:actas} de actas de entrevistas.
+
+\subsection{Cronograma de la Sesión de Elicitación}
+
+\begin{table}[H]
+	\centering
+	\caption{Cronograma de la sesión de elicitación}
+	\label{tab:cronograma}
+	\begin{tabular}{|c|p{6.5cm}|p{4cm}|c|}
+		\hline
+		\textbf{\#} & \textbf{Actividad} & \textbf{Responsable} & \textbf{Duración} \\ \hline
+		1 & Elaboración de la guía de entrevista estructurada & Fuertes Arraes Edson Daniel & 30 min \\ \hline
+		2 & Aplicación de entrevistas a médicos veterinarios (\#1, \#2, \#3) & Morales Sánchez Gary Alejandro; Fuertes Arraes Edson Daniel & 60 min \\ \hline
+		3 & Aplicación de entrevistas a usuarios potenciales (\#4, \#5) & Gutiérrez Ortega Génesis Adriana; Morales Sánchez Gary Alejandro & 40 min \\ \hline
+		4 & Sesión de brainstorming grupal para consolidación preliminar & Todo el equipo & 20 min \\ \hline
+		5 & Consolidación de requisitos crudos y depuración & Fuertes Arraes Edson Daniel & 40 min \\ \hline
+		6 & Clasificación, priorización (MoSCoW, Kano) y negociación & Fuertes Arraes Edson Daniel & 50 min \\ \hline
+	\end{tabular}
+\end{table}
+
+\textbf{Riesgos identificados para la sesión:}
+\begin{itemize}[leftmargin=*]
+	\item Disponibilidad limitada de los médicos veterinarios por su carga laboral, mitigado coordinando horarios fuera de consultas.
+	\item Posible ambigüedad en las respuestas de usuarios potenciales sobre temas clínicos, mitigado mediante preguntas de seguimiento durante la entrevista.
+	\item Riesgo de duplicidad de requisitos entre fuentes, mitigado mediante la asignación de un único responsable (Integrante 1) para la consolidación final.
+\end{itemize}
+
+\textbf{Criterios de suficiencia:} se consideró que la elicitación alcanzó un nivel suficiente cuando: (i)~se obtuvieron al menos 25 requisitos crudos provenientes de al menos tres fuentes distintas; (ii)~las cinco entrevistas cubrieron de manera consistente los ejes temáticos de perfil médico, compatibilidad para cruce y adopción responsable; y (iii)~no se identificaron nuevos temas relevantes en las últimas dos entrevistas, lo que indicó saturación temática.
+
+\newpage
+
+% ============================================================
+%  SECCIÓN -- ANÁLISIS, CLASIFICACIÓN Y PRIORIZACIÓN (PASO 3)
+%  Responsable: Integrante 1
+% ============================================================
+\section{ANÁLISIS, CLASIFICACIÓN Y PRIORIZACIÓN DE REQUISITOS}
+
+\subsection{Requisitos Únicos Consolidados}
+
+A partir de los 25 requisitos crudos elicitados (Sección~\ref{sec:requisitos_crudos}), se realizó un proceso de depuración que consistió en: (i)~fusionar requisitos crudos redundantes que expresaban la misma necesidad desde distintas entrevistas, (ii)~separar requisitos compuestos en enunciados atómicos y verificables, y (iii)~reclasificar como requisitos no funcionales (RNF) aquellos que correspondían a atributos de calidad según ISO/IEC 25010:2023 \cite{iso25010}, en lugar de funcionalidades del sistema. La redacción final sigue las características de no ambigüedad, completitud, singularidad y verificabilidad de IEEE/ISO/IEC 29148:2018 \cite{ieee29148}.
+
+Como resultado, RC-08 y RC-09 se fusionaron en un único requisito de perfil reproductivo y quirúrgico; RC-15, RC-16 y RC-25 se consolidaron en un requisito de antecedentes genéticos y genealogía, dado que las tres expresaban la misma necesidad de prevenir cruces con parentesco. RC-12 se descartó como requisito independiente porque su contenido queda cubierto por RC-06 y RC-23 (consulta de información médica y cuidados antes de adoptar).
+
+\begin{longtable}{|c|c|p{9.5cm}|c|}
+	\caption{Lista de requisitos únicos consolidados}
+	\label{tab:requisitos_unicos} \\
+	\hline
+	\textbf{ID} & \textbf{Tipo} & \textbf{Requisito (redacción verificable)} & \textbf{Fuente(s)} \\ \hline
+	\endfirsthead
+	\hline
+	\textbf{ID} & \textbf{Tipo} & \textbf{Requisito (redacción verificable)} & \textbf{Fuente(s)} \\ \hline
+	\endhead
+	RF-01 & RF & El sistema deberá permitir registrar los datos básicos de cada mascota: nombre, edad, sexo y raza. & RC-01 \\ \hline
+	RF-02 & RF & El sistema deberá permitir registrar el historial de vacunación y desparasitación de cada mascota, incluyendo fechas de aplicación. & RC-02 \\ \hline
+	RF-03 & RF & El sistema deberá permitir registrar enfermedades previas o crónicas de la mascota. & RC-03 \\ \hline
+	RF-04 & RF & El sistema deberá permitir registrar alergias alimentarias o farmacológicas de la mascota. & RC-04 \\ \hline
+	RF-05 & RF & El sistema deberá generar un perfil médico que reúna, en una sola vista, los antecedentes clínicos de la mascota (vacunas, enfermedades, alergias, cirugías). & RC-05 \\ \hline
+	RF-06 & RF & El sistema deberá permitir a los usuarios consultar el historial médico completo de una mascota antes de iniciar un proceso de adopción o cruce. & RC-06 \\ \hline
+	RF-07 & RF & El sistema deberá permitir registrar la presencia de ectoparásitos o enfermedades transmisibles detectadas en la mascota. & RC-07 \\ \hline
+	RF-08 & RF & El sistema deberá permitir registrar el estado reproductivo de la mascota (esterilizada, en celo, apta para cruce) y las cirugías o tratamientos médicos en curso. & RC-08, RC-09 \\ \hline
+	RF-09 & RF & El sistema deberá permitir registrar el temperamento o comportamiento habitual de la mascota mediante categorías predefinidas (sociable, territorial, tímido, agresivo). & RC-10 \\ \hline
+	RF-10 & RF & El sistema deberá permitir a los usuarios publicar perfiles de mascotas disponibles para adopción. & RC-11 \\ \hline
+	RF-11 & RF & El sistema deberá permitir el seguimiento del estado de una solicitud de adopción y la comunicación entre el propietario y el interesado mediante un canal de mensajería interno. & RC-13 \\ \hline
+	RF-12 & RF & El sistema deberá permitir a los usuarios publicar perfiles de mascotas disponibles para procesos de cruce. & RC-14 \\ \hline
+	RF-13 & RF & El sistema deberá permitir registrar información genética y de genealogía (línea de parentesco) de la mascota, con el fin de identificar posibles relaciones de parentesco entre dos ejemplares. & RC-15, RC-16, RC-25 \\ \hline
+	RF-14 & RF & El sistema deberá mostrar un indicador de compatibilidad entre dos mascotas antes de confirmar un proceso de cruce, calculado a partir de raza, edad, estado de salud y parentesco registrado. & RC-17 \\ \hline
+	RF-15 & RF & El sistema deberá registrar y mostrar la edad de la mascota en los perfiles de adopción y de cruce. & RC-18 \\ \hline
+	RF-16 & RF & El sistema deberá permitir adjuntar documentos digitales (carnés de vacunación, certificados veterinarios) como evidencia del historial médico registrado. & RC-20 \\ \hline
+	RF-17 & RF & El sistema deberá mostrar al usuario, antes de confirmar una adopción, una lista de cuidados especiales requeridos por la mascota según su perfil médico registrado. & RC-23 \\ \hline
+	RF-18 & RF & El sistema deberá mostrar al usuario, antes de confirmar un proceso de cruce, una alerta con los riesgos sanitarios relevantes detectados a partir del perfil médico de ambas mascotas. & RC-24 \\ \hline
+	RF-19 & RF & El sistema deberá permitir registrar información sobre el entorno o condiciones de vivienda donde residirá la mascota adoptada (espacio disponible, presencia de otras mascotas). & RC-22 \\ \hline
+	RNF-01 & RNF -- Seguridad (confidencialidad) & El sistema deberá restringir el acceso a la información médica sensible de cada mascota únicamente al propietario y a los usuarios que este autorice explícitamente, con un registro de accesos verificable. & RC-21 \\ \hline
+	RNF-02 & RNF -- Fiabilidad & El sistema deberá indicar, para cada dato médico registrado, si proviene de un documento adjunto verificable (carné, certificado) o de declaración del propietario, de modo que el usuario pueda distinguir el nivel de confiabilidad de la información en al menos un 90\,\% de los perfiles activos. & RC-19 \\ \hline
+	RNF-03 & RNF -- Usabilidad & El formulario de registro del perfil médico de la mascota deberá poder completarse en un máximo de 10 minutos por un usuario sin experiencia previa en la plataforma. & RC-05 \\ \hline
+	\end{longtable}
+
+Con lo anterior se obtuvieron \textbf{19 requisitos funcionales (RF)} y \textbf{3 requisitos no funcionales (RNF)}, para un total de \textbf{22 requisitos únicos consolidados}, cumpliendo el mínimo de 20 establecido en la rúbrica. La eliminación de duplicados se documenta en la tabla siguiente.
+
+\begin{table}[H]
+	\centering
+	\caption{Duplicados eliminados y justificación}
+	\label{tab:duplicados}
+	\begin{tabular}{|p{2.8cm}|p{9.5cm}|p{2.2cm}|}
+		\hline
+		\textbf{Crudos fusionados} & \textbf{Justificación de fusión} & \textbf{Resultado} \\ \hline
+		RC-08, RC-09 & Ambos describen información del estado clínico-quirúrgico actual de la mascota; se integran en un único requisito de estado reproductivo y tratamientos en curso. & RF-08 \\ \hline
+		RC-15, RC-16, RC-25 & Las tres expresan la misma necesidad subyacente: prevenir cruces inadecuados mediante el conocimiento del parentesco y antecedentes genéticos/hereditarios. & RF-13 \\ \hline
+		RC-12 & Su contenido (\textit{información relevante para evaluar una adopción responsable}) queda cubierto íntegramente por RF-06 (consulta de historial médico) y RF-17 (cuidados especiales antes de adoptar); se descarta como requisito independiente por redundancia. & Descartado (cubierto por RF-06, RF-17) \\ \hline
+	\end{tabular}
+\end{table}
+
+\subsection{Priorización MoSCoW}
+
+La técnica MoSCoW \cite{moscow_kano} se aplicó sobre los 22 requisitos consolidados, considerando como criterio principal su impacto en el objetivo central del PFC: permitir procesos seguros y responsables de adopción y cruce de mascotas mediante información médica confiable.
+
+\begin{longtable}{|c|p{2.5cm}|p{10.5cm}|}
+	\caption{Priorización MoSCoW de los requisitos consolidados}
+	\label{tab:moscow} \\
+	\hline
+	\textbf{Categoría} & \textbf{Requisitos} & \textbf{Razón de clasificación} \\ \hline
+	\endfirsthead
+	\hline
+	\textbf{Categoría} & \textbf{Requisitos} & \textbf{Razón de clasificación} \\ \hline
+	\endhead
+	\textbf{Must} & RF-01, RF-02, RF-03, RF-05, RF-06, RF-10, RF-12, RF-13, RF-14, RNF-01 & Constituyen el núcleo mínimo viable: sin el registro de datos básicos, historial médico, perfil médico consolidado, publicación de perfiles y el indicador de compatibilidad genética, el sistema no cumpliría su objetivo central de habilitar cruces y adopciones informadas y responsables. La restricción de acceso a datos sensibles (RNF-01) es indispensable por tratarse de información médica. \\ \hline
+	\textbf{Should} & RF-04, RF-07, RF-08, RF-09, RF-15, RF-17, RF-18, RNF-02 & Aportan valor significativo a la calidad de la información (alergias, ectoparásitos, temperamento, alertas de riesgo) y a la confianza del usuario (verificabilidad), pero el sistema podría operar en una primera versión sin ellos, complementándolos en iteraciones posteriores. \\ \hline
+	\textbf{Could} & RF-11, RF-16, RF-19, RNF-03 & Mejoran la experiencia de uso (mensajería interna, adjuntar documentos, registrar entorno de vivienda, formulario rápido) pero no son indispensables para que el flujo principal de adopción o cruce funcione. \\ \hline
+	\textbf{Won't} & Integración con sistemas externos de clínicas veterinarias (verificación automática de carné digital nacional) & Se descarta explícitamente para esta versión del PFC porque depende de la existencia de un registro veterinario nacional digitalizado, infraestructura externa fuera del alcance y del control del equipo de desarrollo. \\ \hline
+\end{longtable}
+
+\subsection{Modelo de Kano}
+
+La clasificación según el modelo de Kano \cite{moscow_kano} se centró en los requisitos que más influyen en la percepción de calidad del usuario, distinguiendo entre necesidades básicas (\textit{must-be}), de rendimiento (\textit{one-dimensional}) y de deleite (\textit{attractive}).
+
+\begin{longtable}{|c|p{3.2cm}|p{9.3cm}|}
+	\caption{Clasificación según el modelo de Kano}
+	\label{tab:kano} \\
+	\hline
+	\textbf{ID} & \textbf{Tipo Kano} & \textbf{Justificación} \\ \hline
+	\endfirsthead
+	\hline
+	\textbf{ID} & \textbf{Tipo Kano} & \textbf{Justificación} \\ \hline
+	\endhead
+	RF-01 & Básico (\textit{must-be}) & Un perfil de mascota sin datos básicos (nombre, edad, sexo, raza) carece de sentido para el usuario; su ausencia provocaría rechazo inmediato de la plataforma. \\ \hline
+	RF-06 & Básico (\textit{must-be}) & Las entrevistas a veterinarios coinciden en que sin acceso al historial médico antes de adoptar o cruzar, la plataforma no cumple su propósito mínimo y se percibiría como insegura. \\ \hline
+	RF-13 & Rendimiento (\textit{one-dimensional}) & A mayor detalle y precisión de la información genética/genealógica registrada, mayor es la satisfacción del usuario al recibir recomendaciones de cruce más confiables; la relación es proporcional. \\ \hline
+	RF-14 & Rendimiento (\textit{one-dimensional}) & Cuanto más preciso y completo sea el indicador de compatibilidad entre mascotas, mayor confianza y satisfacción genera en el usuario al tomar la decisión de cruce. \\ \hline
+	RF-18 & Deleite (\textit{attractive}) & Las alertas proactivas de riesgo sanitario antes de un cruce no fueron solicitadas explícitamente por los usuarios potenciales en las entrevistas \#4 y \#5, pero su presencia supera las expectativas y genera una percepción de cuidado adicional por parte de la plataforma. \\ \hline
+	RNF-01 & Básico (\textit{must-be}) & La protección de información médica sensible es una expectativa implícita; su ausencia generaría desconfianza inmediata, aunque su presencia no se perciba como un beneficio adicional explícito. \\ \hline
+	RF-11 & Deleite (\textit{attractive}) & El canal de mensajería interno para seguimiento de adopciones no fue mencionado como indispensable por los entrevistados, pero responde directamente al problema de \textit{falta de seguimiento y comunicación} identificado como causa de adopciones informales fallidas (Entrevista \#3), por lo que su inclusión deleitaría al usuario. \\ \hline
+\end{longtable}
+
+\subsection{Análisis de Conflictos y Acta de Negociación}
+
+Durante el análisis se identificó un conflicto entre los requisitos \textbf{RF-06} (consulta de historial médico completo antes de adoptar o cruzar) y \textbf{RNF-01} (restricción de acceso a información médica sensible).
+
+\begin{itemize}[leftmargin=*]
+	\item \textbf{Requisitos en conflicto:} RF-06 vs. RNF-01.
+	\item \textbf{\textit{Stakeholders} involucrados:} Usuarios buscadores (interesados en adoptar o cruzar) vs. Propietarios de mascotas (titulares de la información médica).
+	\item \textbf{Tipo de conflicto (Pohl \cite{pohl2025}):} conflicto de \textbf{datos}, ya que ambos \textit{stakeholders} requieren acceso al mismo conjunto de información (el historial médico de la mascota), pero con expectativas opuestas sobre su nivel de exposición: el usuario buscador desea visibilidad total para tomar una decisión informada, mientras que el propietario desea que solo cierta información sea visible públicamente.
+	\item \textbf{Descripción:} en las entrevistas \#1 y \#3, los veterinarios señalaron que datos como enfermedades catastróficas o intervenciones quirúrgicas son sensibles y deben restringirse (RNF-01), mientras que en las entrevistas \#4 y \#5 los usuarios potenciales expresaron que el historial médico completo es lo más importante para decidir una adopción o cruce (RF-06), generando una tensión directa entre transparencia y privacidad.
+\end{itemize}
+
+\begin{table}[H]
+	\centering
+	\caption{Acta de negociación de conflictos}
+	\label{tab:acta_negociacion}
+	\begin{tabular}{|p{2.8cm}|p{11cm}|}
+		\hline
+		\textbf{Fecha} & 17/05/2026 \\ \hline
+		\textbf{Participantes} & Equipo PFC MundiPets (Integrantes 1 a 5) \\ \hline
+		\textbf{Conflicto tratado} & Visibilidad del historial médico (RF-06) frente a la protección de datos sensibles (RNF-01). \\ \hline
+		\textbf{Estrategia aplicada} & \textit{Win-win} mediante segmentación de la información en dos niveles de visibilidad (Pohl \cite{pohl2025}). \\ \hline
+		\textbf{Acuerdo alcanzado} & El historial médico se dividirá en dos niveles: (1)~\textit{información general visible públicamente} en el perfil de la mascota (estado de vacunación al día, edad, estado reproductivo general, temperamento); y (2)~\textit{información clínica detallada} (enfermedades catastróficas, cirugías, alergias específicas, antecedentes genéticos completos) visible únicamente para el propietario y para los usuarios que este autorice explícitamente al iniciar un proceso formal de adopción o cruce. \\ \hline
+		\textbf{Compromisos} & El equipo de desarrollo (RF-06) deberá implementar la consulta del historial médico respetando los dos niveles definidos. El requisito RNF-01 deberá especificar el mecanismo de autorización explícita por parte del propietario. \\ \hline
+		\textbf{Requisito resultante} & RF-06 (modificado): \textit{El sistema deberá mostrar la información médica general de la mascota en su perfil público, y deberá mostrar la información clínica detallada únicamente cuando el propietario haya autorizado explícitamente al usuario interesado para un proceso de adopción o cruce.} \\ \hline
+	\end{tabular}
+\end{table}
