@@ -1,0 +1,795 @@
+% ============================================================
+%  PFC -- Práctica Fuera de Clases | Unidad 2
+%  Modelado de Casos de Uso y User Stories
+%  Asignatura: Ingeniería de Requisitos (ISR-401) -- UTEQ 2026-2027
+%  Formato: IEEE onecolumn | Cajas de guía por integrante
+%  Las líneas en MAYÚSCULAS entre corchetes son guías de
+%  trabajo para cada integrante -- reemplazar con contenido real
+% ============================================================
+\documentclass[journal,onecolumn]{IEEEtran}
+
+% ── Codificación ────────────────────────────────────────────
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,es-tabla]{babel}
+
+% ── Tablas ──────────────────────────────────────────────────
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{longtable}
+
+% ── Figuras ─────────────────────────────────────────────────
+\usepackage{graphicx}
+\usepackage{float}
+
+% ── Color negro ─────────────────────────────────────────────
+\usepackage{xcolor}
+\usepackage[hidelinks,colorlinks=false]{hyperref}
+
+% ── Geometría ───────────────────────────────────────────────
+\usepackage{geometry}
+\geometry{a4paper, top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm}
+
+% ── Encabezado ──────────────────────────────────────────────
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancyhead[L]{\small PFC: MundiPets -- Unidad 2 | Ingeniería de Requisitos}
+\fancyhead[R]{\small Casos de Uso y User Stories}
+\fancyfoot[C]{\thepage}
+
+% ── Espaciado ───────────────────────────────────────────────
+\usepackage{parskip}
+\setlength{\parskip}{4pt}
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage{titlesec}
+\captionsetup{font=small, labelfont=bf}
+
+% ── Caja de guía (fondo gris claro, borde negro) ────────────
+\usepackage{mdframed}
+\mdfdefinestyle{guia}{
+  linecolor=black,
+  linewidth=0.6pt,
+  backgroundcolor=gray!10,
+  innertopmargin=6pt,
+  innerbottommargin=6pt,
+  innerleftmargin=8pt,
+  innerrightmargin=8pt,
+  skipabove=4pt,
+  skipbelow=4pt
+}
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
+
+\titleformat{\section}{\normalfont\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{}
+% ── Comando de caja de guía ─────────────────────────────────
+% \guia{INTEGRANTE}{texto de la guía}
+\newcommand{\guia}[2]{%
+  \begin{mdframed}[style=guia]
+    \noindent\textbf{Responsable: #1}\\[2pt]
+    \textit{#2}
+  \end{mdframed}
+}
+
+% ── BibTeX ──────────────────────────────────────────────────
+\bibliographystyle{IEEEtran}
+
+
+% ============================================================
+\begin{document}
+\begin{titlepage}
+	\centering
+	
+	{\large\bfseries UNIVERSIDAD TÉCNICA ESTATAL DE QUEVEDO\\[12pt]}
+	
+	% Se coloca la imagen directamente sin el entorno 'figure'
+	\includegraphics[width=0.3\textwidth]{uteqlogo.png}\\[12pt]
+	
+	{\large\bfseries FACULTAD DE CIENCIAS DE LA COMPUTACIÓN Y DISEÑO DIGITAL\\[4pt]
+		CARRERA DE INGENIERÍA EN SOFTWARE}
+	
+	\vspace{1cm}
+	
+	{\normalsize\bfseries TEMA:}\\[4pt]
+	{\normalsize MODELAR LOS CASOS DE USO DEL SISTEMA DEL PROYECTO FIN DE CURSO EN UNA HERRAMIENTA CASE}
+	
+	\vspace{1cm}
+		
+	{\normalsize\bfseries PROYECTO FIN DE CURSO:}\\[4pt]	
+	{\normalsize MundiPets}
+	
+	\vspace{1cm}
+	
+	{\normalsize \bfseries MATERIA:}\\[4pt]
+	{\normalsize INGENIERÍA DE REQUERIMIENTOS}
+	
+	\vspace{1cm}
+	
+	{\normalsize\bfseries DOCENTE:}\\[4pt]
+	{\normalsize ING. GUERRERO ULLOA GLEISTON CICERÓN}
+	
+	\vspace{1cm}
+	
+	{\normalsize\bfseries INTEGRANTES:}\\[6pt]
+	
+	
+	
+	{\normalsize FUERTES ARRAES EDSON DANIEL}\\
+	
+	\vspace{0.3cm}
+	
+	{\normalsize GUTIÉRREZ ORTEGA GÉNESIS ADRIANA}\\
+
+	\vspace{0.3cm}
+	
+	{\normalsize MORALES SÁNCHEZ GARY ALEJANDRO}\\
+	
+	\vspace{1cm}
+	
+	{\normalsize\bfseries CURSO:}\\[4pt]
+	{\normalsize CUARTO SEMESTRE PARALELO ``B''}
+	
+	\vspace{1cm}
+	
+	{\normalsize\bfseries QUEVEDO -- LOS RÍOS -- ECUADOR}\\[4pt]
+	{\normalsize\bfseries 2026 -- 2027 PPA}\\[4pt]
+	{\normalsize Semana 4 -- \today}
+	
+\end{titlepage}
+
+
+\tableofcontents
+\newpage
+
+% ============================================================
+%  SECCIÓN 1 -- PORTADA Y DATOS GENERALES
+% ============================================================
+\section{Descripción del PFC}
+
+\subsection{Sistema del PFC}
+
+
+\newpage
+
+% ============================================================
+%  SECCIÓN 2 -- INTRODUCCIÓN
+% ============================================================
+\section{Introducción}
+
+\guia{Integrante 1 -- Analista Líder}{%
+Redactar una introducción de 150-200 palabras que explique:
+(a)~el propósito de la práctica (modelar la funcionalidad del sistema
+mediante casos de uso y user stories), (b)~la herramienta CASE seleccionada
+(Enterprise Architect o StarUML) y la justificación de su elección,
+(c)~el alcance cubierto en coherencia con la Entrega 1A.
+Citar al menos \texttt{ISO/IEC/IEEE 29148:2018} y \texttt{Pohl (2010)}
+para enmarcar la actividad dentro del proceso de IR.}
+
+[INTRODUCCIÓN DEL INFORME]
+
+\newpage
+
+% ============================================================
+%  SECCIÓN 3 -- ACTORES Y FRONTERA DEL SISTEMA
+%  Fases 1 y 2 de la guía | Responsable: Integrante 1
+% ============================================================
+\section{Actores y Frontera del Sistema}
+
+\subsection{Tabla de Actores}
+
+\guia{Integrante 1 -- Analista Líder}{%
+Derivar los actores del sistema a partir de la lista de stakeholders del PFC
+(Fase~2 de la guía). Para cada actor indicar: nombre, tipo (primario /
+secundario / sistema externo) y descripción de su interés u objetivo frente
+al sistema. Recordar que los actores están \textbf{fuera} de la frontera;
+no modelar componentes internos como actores. Incluir sistemas externos cuando
+corresponda (pasarelas de pago, servicios de notificación, etc.).}
+
+\begin{table}[H]
+\caption{Actores del sistema del PFC}
+\label{tab:actores}
+\begin{tabularx}{\textwidth}{|c|X|l|X|}
+\hline
+\textbf{\#} & \textbf{Nombre del Actor} & \textbf{Tipo} & \textbf{Interés / Objetivo} \\
+\hline
+1 & & Primario & \\
+\hline
+2 & & Primario & \\
+\hline
+3 & & Secundario & \\
+\hline
+4 & & Sistema externo & \\
+\hline
+5 & & & \\
+\hline
+\end{tabularx}
+\end{table}
+
+\subsection{Frontera del Sistema}
+
+\guia{Integrante 1 -- Analista Líder}{%
+Definir la frontera del sistema en un párrafo: indicar explícitamente qué
+funcionalidades quedan \textbf{dentro} del sistema y cuáles quedan
+\textbf{fuera}, en coherencia con el alcance declarado en la Entrega 1A.
+Esta delimitación debe ser consistente con el rectángulo de frontera
+que aparece en el diagrama de la Sección~4.}
+
+[DEFINICIÓN DE LA FRONTERA DEL SISTEMA]
+
+\newpage
+
+% ============================================================
+%  SECCIÓN 4 -- DIAGRAMA DE CASOS DE USO
+%  Fase 3 de la guía | Responsable: Integrante 2
+% ============================================================
+\section{Diagrama de Casos de Uso}
+
+\guia{Integrante 2 -- Modelador UML}{%
+Construir el diagrama de casos de uso en la herramienta CASE seleccionada
+(Enterprise Architect o StarUML). Requisitos mínimos según la guía:
+\textbf{(a)}~al menos 8 casos de uso correctamente nombrados
+(verbo en infinitivo + objeto, p.ej. \textit{Registrar mascota});
+\textbf{(b)}~al menos 3 actores;
+\textbf{(c)}~al menos una relación \texttt{include} y una \texttt{extend}
+debidamente justificadas;
+\textbf{(d)}~identificadores únicos (CU-01, CU-02\ldots) registrados
+como propiedad de cada elemento en la herramienta.
+Asignar identificadores CU-XX a cada caso de uso.
+Exportar el diagrama en alta resolución e insertarlo a continuación.}
+
+\begin{figure}[H]
+  \centering
+  \fbox{\parbox{0.9\textwidth}{\centering\vspace{4cm}
+    \textit{[Reemplazar con: \texttt{\textbackslash includegraphics[width=\textbackslash textwidth]\{diagrama\_cu.png\}}]}\\[6pt]
+    \textit{Exportar desde la herramienta CASE en alta resolución (PNG o PDF)}
+  \vspace{4cm}}}
+  \caption{Diagrama de casos de uso del sistema [NOMBRE DEL PFC].}
+  \label{fig:diagrama_cu}
+\end{figure}
+
+\subsection{Justificación de Relaciones UML}
+
+\guia{Integrante 2 -- Modelador UML}{%
+Para cada relación \texttt{include}, \texttt{extend} y generalización
+presente en el diagrama, redactar una justificación breve (2-3 oraciones)
+que explique por qué esa relación es semánticamente correcta en el dominio
+del PFC. Recordar: \texttt{include} = comportamiento obligatorio reutilizado;
+\texttt{extend} = comportamiento condicional u opcional (con punto de extensión);
+generalización = especialización real, no forzada.}
+
+\begin{table}[H]
+\caption{Justificación de relaciones UML del diagrama}
+\label{tab:relaciones}
+\begin{tabularx}{\textwidth}{|l|l|X|}
+\hline
+\textbf{Tipo} & \textbf{Relación (CU origen $\rightarrow$ CU destino)} & \textbf{Justificación} \\
+\hline
+\texttt{include}  & [CU-XX] $\rightarrow$ [CU-XX] & \\
+\hline
+\texttt{include}  & [CU-XX] $\rightarrow$ [CU-XX] & \\
+\hline
+\texttt{extend}   & [CU-XX] $\rightarrow$ [CU-XX] & \\
+\hline
+Generalización    & [Actor/CU] $\rightarrow$ [Actor/CU] & \\
+\hline
+\end{tabularx}
+\end{table}
+
+\newpage
+
+% ============================================================
+%  SECCIÓN 5 -- ESPECIFICACIONES TEXTUALES DE CASOS DE USO
+%  Fase 4 de la guía | Responsable: Integrante 2
+% ============================================================
+\section{Especificaciones Textuales de Casos de Uso}
+
+\guia{Integrante 2 -- Modelador UML}{%
+Seleccionar los tres casos de uso de mayor relevancia para el sistema
+(los que concentran el valor central del PFC) y especificarlos con la
+plantilla de la Fase~4 de la guía. Redactar los pasos del flujo principal
+alternando actor y sistema (1. El actor solicita\ldots\ 2. El sistema
+valida\ldots). No incluir decisiones de diseño ni de interfaz prematuras.
+Verificar que cada especificación cumpla las características de calidad
+de ISO/IEC/IEEE 29148: no ambigua, completa, singular, verificable y factible.}
+
+% ── Caso de Uso 1 ───────────────────────────────────────────
+\subsection{Especificación: [CU-XX] [Nombre del Caso de Uso]}
+
+\begin{table}[H]
+\caption{Especificación textual de [CU-XX]}
+\label{tab:cu01}
+\begin{tabularx}{\textwidth}{|l|X|}
+\hline
+\textbf{Identificador}       & CU-XX \\
+\hline
+\textbf{Nombre}              & [Verbo en infinitivo + objeto] \\
+\hline
+\textbf{Actores}             & Primario: [Actor]. Secundario: [Actor, si aplica] \\
+\hline
+\textbf{Precondiciones}      & \begin{enumerate}[leftmargin=*,topsep=0pt]
+                                 \item [Estado requerido antes de iniciar]
+                                 \item [Condición adicional, si aplica]
+                               \end{enumerate} \\
+\hline
+\textbf{Flujo principal}     & \begin{enumerate}[leftmargin=*,topsep=0pt]
+                                 \item El actor [acción].
+                                 \item El sistema [respuesta].
+                                 \item El actor [acción].
+                                 \item El sistema [respuesta].
+                                 \item [Continuar hasta completar el escenario de éxito]
+                               \end{enumerate} \\
+\hline
+\textbf{Flujos alternativos} & \textbf{FA-1} (bifurca en paso [N]): [Descripción de variación válida]. \\
+\hline
+\textbf{Excepciones}         & \textbf{E-1} (bifurca en paso [N]): [Condición de error y respuesta del sistema]. \\
+\hline
+\textbf{Postcondiciones}     & \begin{enumerate}[leftmargin=*,topsep=0pt]
+                                 \item [Estado del sistema tras ejecución exitosa]
+                               \end{enumerate} \\
+\hline
+\textbf{Requisitos asociados} & RF-XX, RF-XX [identificadores del PFC] \\
+\hline
+\end{tabularx}
+\end{table}
+
+% ── Caso de Uso 2 ───────────────────────────────────────────
+\subsection{Especificación: [CU-XX] [Nombre del Caso de Uso]}
+
+\begin{table}[H]
+\caption{Especificación textual de [CU-XX]}
+\label{tab:cu02}
+\begin{tabularx}{\textwidth}{|l|X|}
+\hline
+\textbf{Identificador}       & CU-XX \\
+\hline
+\textbf{Nombre}              & [Verbo en infinitivo + objeto] \\
+\hline
+\textbf{Actores}             & Primario: [Actor]. Secundario: [Actor, si aplica] \\
+\hline
+\textbf{Precondiciones}      & \begin{enumerate}[leftmargin=*,topsep=0pt]
+                                 \item [Estado requerido antes de iniciar]
+                               \end{enumerate} \\
+\hline
+\textbf{Flujo principal}     & \begin{enumerate}[leftmargin=*,topsep=0pt]
+                                 \item El actor [acción].
+                                 \item El sistema [respuesta].
+                                 \item El actor [acción].
+                                 \item El sistema [respuesta].
+                                 \item [Continuar hasta completar el escenario de éxito]
+                               \end{enumerate} \\
+\hline
+\textbf{Flujos alternativos} & \textbf{FA-1} (bifurca en paso [N]): [Descripción]. \\
+\hline
+\textbf{Excepciones}         & \textbf{E-1} (bifurca en paso [N]): [Condición de error y respuesta]. \\
+\hline
+\textbf{Postcondiciones}     & \begin{enumerate}[leftmargin=*,topsep=0pt]
+                                 \item [Estado del sistema tras ejecución exitosa]
+                               \end{enumerate} \\
+\hline
+\textbf{Requisitos asociados} & RF-XX, RF-XX \\
+\hline
+\end{tabularx}
+\end{table}
+
+% ── Caso de Uso 3 ───────────────────────────────────────────
+\subsection{Especificación: [CU-XX] [Nombre del Caso de Uso]}
+
+\begin{table}[H]
+\caption{Especificación textual de [CU-XX]}
+\label{tab:cu03}
+\begin{tabularx}{\textwidth}{|l|X|}
+\hline
+\textbf{Identificador}       & CU-XX \\
+\hline
+\textbf{Nombre}              & [Verbo en infinitivo + objeto] \\
+\hline
+\textbf{Actores}             & Primario: [Actor]. Secundario: [Actor, si aplica] \\
+\hline
+\textbf{Precondiciones}      & \begin{enumerate}[leftmargin=*,topsep=0pt]
+                                 \item [Estado requerido antes de iniciar]
+                               \end{enumerate} \\
+\hline
+\textbf{Flujo principal}     & \begin{enumerate}[leftmargin=*,topsep=0pt]
+                                 \item El actor [acción].
+                                 \item El sistema [respuesta].
+                                 \item El actor [acción].
+                                 \item El sistema [respuesta].
+                                 \item [Continuar hasta completar el escenario de éxito]
+                               \end{enumerate} \\
+\hline
+\textbf{Flujos alternativos} & \textbf{FA-1} (bifurca en paso [N]): [Descripción]. \\
+\hline
+\textbf{Excepciones}         & \textbf{E-1} (bifurca en paso [N]): [Condición de error y respuesta]. \\
+\hline
+\textbf{Postcondiciones}     & \begin{enumerate}[leftmargin=*,topsep=0pt]
+                                 \item [Estado del sistema tras ejecución exitosa]
+                               \end{enumerate} \\
+\hline
+\textbf{Requisitos asociados} & RF-XX, RF-XX \\
+\hline
+\end{tabularx}
+\end{table}
+
+\newpage
+
+% ============================================================
+%  SECCIÓN 6 -- USER STORIES Y CRITERIOS DE ACEPTACIÓN
+%  Fase 5 de la guía | Responsable: Integrante 3
+% ============================================================
+\section{User Stories y Criterios de Aceptación}
+
+\guia{Integrante 3 -- Especialista Ágil}{%
+Seleccionar tres funcionalidades del PFC asociadas a casos de uso del diagrama
+(pueden ser los mismos tres de la Sección~5 u otros, dejando la trazabilidad
+explícita). Para cada user story: (a)~redactarla en formato Connextra completo,
+(b)~verificarla contra los criterios INVEST con análisis argumentado, y
+(c)~formular al menos tres criterios de aceptación en formato Gherkin
+(\textit{Dado / Cuando / Entonces}) o lista de verificación medible.
+Los criterios deben cubrir: escenario de éxito, al menos un escenario
+alternativo o de borde, y al menos un escenario de error.
+Términos vagos sin métrica (\textit{rápido, fácil, seguro}) invalidan el criterio.
+Al finalizar, registrar las user stories dentro de la herramienta CASE
+(como elementos de requisito o notas vinculadas a los CU).}
+
+% ── User Story 1 ────────────────────────────────────────────
+\subsection{User Story US-01}
+
+\textbf{Plantilla Connextra:}
+
+\begin{mdframed}[style=guia]
+\textit{US-01. Como} [rol concreto del sistema], \textit{quiero} [funcionalidad específica]
+\textit{para} [beneficio o valor verificable].
+\end{mdframed}
+
+\textbf{Verificación INVEST:}
+
+\begin{table}[H]
+\caption{Verificación INVEST de US-01}
+\label{tab:invest01}
+\begin{tabularx}{\textwidth}{|l|l|X|}
+\hline
+\textbf{Criterio} & \textbf{¿Cumple?} & \textbf{Justificación} \\
+\hline
+Independiente  & Sí / No & \\
+\hline
+Negociable     & Sí / No & \\
+\hline
+Valiosa        & Sí / No & \\
+\hline
+Estimable      & Sí / No & \\
+\hline
+Pequeña        & Sí / No & \\
+\hline
+Testeable      & Sí / No & \\
+\hline
+\end{tabularx}
+\end{table}
+
+\textbf{Criterios de aceptación (Gherkin):}
+
+\begin{enumerate}[leftmargin=*]
+  \item \textbf{Escenario de éxito:}\\
+        \textit{Dado} [contexto inicial],\\
+        \textit{cuando} [acción del actor],\\
+        \textit{entonces} [resultado observable y medible].
+
+  \item \textbf{Escenario alternativo / de borde:}\\
+        \textit{Dado} [contexto con condición límite],\\
+        \textit{cuando} [acción del actor],\\
+        \textit{entonces} [resultado esperado].
+
+  \item \textbf{Escenario de error:}\\
+        \textit{Dado} [contexto con datos inválidos o fallo],\\
+        \textit{cuando} [acción del actor],\\
+        \textit{entonces} [mensaje de error concreto que muestra el sistema].
+\end{enumerate}
+
+\textbf{Caso de uso asociado:} CU-XX | \textbf{Requisito(s) del PFC:} RF-XX
+
+% ── User Story 2 ────────────────────────────────────────────
+\subsection{User Story US-02}
+
+\textbf{Plantilla Connextra:}
+
+\begin{mdframed}[style=guia]
+\textit{US-02. Como} [rol concreto del sistema], \textit{quiero} [funcionalidad específica]
+\textit{para} [beneficio o valor verificable].
+\end{mdframed}
+
+\textbf{Verificación INVEST:}
+
+\begin{table}[H]
+\caption{Verificación INVEST de US-02}
+\label{tab:invest02}
+\begin{tabularx}{\textwidth}{|l|l|X|}
+\hline
+\textbf{Criterio} & \textbf{¿Cumple?} & \textbf{Justificación} \\
+\hline
+Independiente  & Sí / No & \\
+\hline
+Negociable     & Sí / No & \\
+\hline
+Valiosa        & Sí / No & \\
+\hline
+Estimable      & Sí / No & \\
+\hline
+Pequeña        & Sí / No & \\
+\hline
+Testeable      & Sí / No & \\
+\hline
+\end{tabularx}
+\end{table}
+
+\textbf{Criterios de aceptación (Gherkin):}
+
+\begin{enumerate}[leftmargin=*]
+  \item \textbf{Escenario de éxito:}\\
+        \textit{Dado} [contexto inicial],\\
+        \textit{cuando} [acción del actor],\\
+        \textit{entonces} [resultado observable y medible].
+
+  \item \textbf{Escenario alternativo / de borde:}\\
+        \textit{Dado} [contexto con condición límite],\\
+        \textit{cuando} [acción del actor],\\
+        \textit{entonces} [resultado esperado].
+
+  \item \textbf{Escenario de error:}\\
+        \textit{Dado} [contexto con datos inválidos o fallo],\\
+        \textit{cuando} [acción del actor],\\
+        \textit{entonces} [mensaje de error concreto que muestra el sistema].
+\end{enumerate}
+
+\textbf{Caso de uso asociado:} CU-XX | \textbf{Requisito(s) del PFC:} RF-XX
+
+% ── User Story 3 ────────────────────────────────────────────
+\subsection{User Story US-03}
+
+\textbf{Plantilla Connextra:}
+
+\begin{mdframed}[style=guia]
+\textit{US-03. Como} [rol concreto del sistema], \textit{quiero} [funcionalidad específica]
+\textit{para} [beneficio o valor verificable].
+\end{mdframed}
+
+\textbf{Verificación INVEST:}
+
+\begin{table}[H]
+\caption{Verificación INVEST de US-03}
+\label{tab:invest03}
+\begin{tabularx}{\textwidth}{|l|l|X|}
+\hline
+\textbf{Criterio} & \textbf{¿Cumple?} & \textbf{Justificación} \\
+\hline
+Independiente  & Sí / No & \\
+\hline
+Negociable     & Sí / No & \\
+\hline
+Valiosa        & Sí / No & \\
+\hline
+Estimable      & Sí / No & \\
+\hline
+Pequeña        & Sí / No & \\
+\hline
+Testeable      & Sí / No & \\
+\hline
+\end{tabularx}
+\end{table}
+
+\textbf{Criterios de aceptación (Gherkin):}
+
+\begin{enumerate}[leftmargin=*]
+  \item \textbf{Escenario de éxito:}\\
+        \textit{Dado} [contexto inicial],\\
+        \textit{cuando} [acción del actor],\\
+        \textit{entonces} [resultado observable y medible].
+
+  \item \textbf{Escenario alternativo / de borde:}\\
+        \textit{Dado} [contexto con condición límite],\\
+        \textit{cuando} [acción del actor],\\
+        \textit{entonces} [resultado esperado].
+
+  \item \textbf{Escenario de error:}\\
+        \textit{Dado} [contexto con datos inválidos o fallo],\\
+        \textit{cuando} [acción del actor],\\
+        \textit{entonces} [mensaje de error concreto que muestra el sistema].
+\end{enumerate}
+
+\textbf{Caso de uso asociado:} CU-XX | \textbf{Requisito(s) del PFC:} RF-XX
+
+\newpage
+
+% ============================================================
+%  SECCIÓN 7 -- MATRIZ DE TRAZABILIDAD
+%  Fase 6 de la guía | Responsable: Integrante 1
+% ============================================================
+\section{Matriz de Trazabilidad}
+
+\guia{Integrante 1 -- Analista Líder}{%
+Construir la matriz de trazabilidad requisito $\rightarrow$ caso de uso
+$\rightarrow$ user story, cubriendo todos los elementos del modelo.
+Verificar que: (a)~ningún caso de uso quede sin requisito de origen
+(o documente el descarte con justificación); (b)~ningún requisito funcional
+central quede sin caso de uso que lo realice; (c)~las tres user stories
+estén vinculadas a casos de uso del diagrama.
+Verificar también la coherencia terminológica entre artefactos (mismo nombre
+de actores, roles y conceptos del dominio en todas las secciones).}
+
+\begin{longtable}{|c|l|c|c|}
+\caption{Matriz de trazabilidad: requisito $\rightarrow$ caso de uso $\rightarrow$ user story}
+\label{tab:trazabilidad}\\
+\hline
+\textbf{Requisito (RF-XX)} & \textbf{Descripción breve} & \textbf{Caso de Uso} & \textbf{User Story} \\
+\hline
+\endfirsthead
+\hline
+\textbf{Requisito (RF-XX)} & \textbf{Descripción breve} & \textbf{Caso de Uso} & \textbf{User Story} \\
+\hline
+\endhead
+RF-01 & [Descripción] & CU-XX & US-XX \\
+\hline
+RF-02 & [Descripción] & CU-XX & -- \\
+\hline
+RF-03 & [Descripción] & CU-XX & US-XX \\
+\hline
+RF-04 & [Descripción] & CU-XX & -- \\
+\hline
+RF-05 & [Descripción] & CU-XX & US-XX \\
+\hline
+[Agregar filas según los requisitos del PFC] & & & \\
+\hline
+\end{longtable}
+
+\newpage
+
+% ============================================================
+%  SECCIÓN 8 -- CONCLUSIONES
+%  Responsable: distribuidas entre los tres integrantes
+% ============================================================
+\section{Conclusiones}
+
+\noindent\textit{Estructura obligatoria para cada conclusión:
+(1)~afirmación clara $\rightarrow$ (2)~evidencia del trabajo realizado
+$\rightarrow$ (3)~implicación para el PFC o la profesión. Mínimo 80 palabras cada una.}
+
+\subsection*{Conclusión 1}
+\addcontentsline{toc}{subsection}{Conclusión 1}
+
+\guia{Integrante 1 -- Analista Líder}{%
+Redactar una conclusión sobre la importancia de definir correctamente los
+actores y la frontera del sistema. ¿Cómo influyó esta delimitación en la
+calidad y completitud del diagrama de casos de uso del PFC?
+Vincular con ISO/IEC/IEEE 29148:2018 o Pohl (2010).}
+
+[CONCLUSIÓN 1]
+
+\subsection*{Conclusión 2}
+\addcontentsline{toc}{subsection}{Conclusión 2}
+
+\guia{Integrante 2 -- Modelador UML}{%
+Redactar una conclusión sobre el uso de la herramienta CASE y la semántica
+de las relaciones UML (\texttt{include}/\texttt{extend}/generalización).
+¿Qué errores conceptuales comunes se evitaron gracias al uso de la herramienta?
+Vincular con OMG UML 2.5.1 o Pohl (2010).}
+
+[CONCLUSIÓN 2]
+
+\subsection*{Conclusión 3}
+\addcontentsline{toc}{subsection}{Conclusión 3}
+
+\guia{Integrante 3 -- Especialista Ágil}{%
+Redactar una conclusión sobre el valor de los criterios de aceptación en
+formato Gherkin para la verificabilidad de las user stories del PFC.
+¿Qué dificultades se encontraron al redactar criterios medibles y cómo se resolvieron?
+Vincular con Cohn (2004) o IREB CPRE FL v3.1.}
+
+[CONCLUSIÓN 3]
+
+\subsection*{Conclusión 4}
+\addcontentsline{toc}{subsection}{Conclusión 4}
+
+\guia{Integrante 1 -- Analista Líder}{%
+Redactar una conclusión integradora sobre la trazabilidad lograda entre
+requisitos, casos de uso y user stories. ¿Qué beneficios concretos aporta
+esta trazabilidad al desarrollo futuro del PFC?
+Citar al menos dos fuentes del deber.}
+
+[CONCLUSIÓN 4]
+
+\newpage
+
+% ============================================================
+%  REFERENCIAS
+% ============================================================
+\bibliography{referencias}
+
+\newpage
+
+% ============================================================
+%  ANEXOS
+% ============================================================
+\section{Anexos}
+
+% ── Anexo A: Evidencias de la herramienta CASE ──────────────
+\subsection{Evidencias de Uso de la Herramienta CASE}
+\label{app:case}
+
+\guia{Integrante 2 -- Modelador UML}{%
+Insertar capturas de pantalla del entorno de la herramienta CASE con el
+proyecto del equipo abierto, mostrando: (a)~la estructura del repositorio
+del modelo (paquetes y elementos); (b)~los identificadores CU-XX asignados
+como propiedad de cada caso de uso; (c)~al menos una vista del modelo
+en edición (no solo el diagrama exportado).
+Estas capturas son evidencia obligatoria de autoría según los criterios
+de admisión de la guía.}
+
+\begin{figure}[H]
+  \centering
+  \fbox{\parbox{0.85\textwidth}{\centering\vspace{2.5cm}
+    \textit{[Insertar captura 1: estructura del proyecto en la herramienta CASE]}
+  \vspace{2.5cm}}}
+  \caption{Estructura del modelo en [Enterprise Architect / StarUML].}
+  \label{fig:case1}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \fbox{\parbox{0.85\textwidth}{\centering\vspace{2.5cm}
+    \textit{[Insertar captura 2: propiedades de un caso de uso con su identificador CU-XX]}
+  \vspace{2.5cm}}}
+  \caption{Propiedad de identificador asignada al caso de uso en la herramienta.}
+  \label{fig:case2}
+\end{figure}
+
+% ── Anexo B: User Stories en la herramienta CASE ────────────
+\subsection{Registro de User Stories en la Herramienta CASE}
+\label{app:us_case}
+
+\guia{Integrante 3 -- Especialista Ágil}{%
+Insertar captura de pantalla que evidencie el registro de las tres user
+stories dentro de la herramienta CASE (como elementos de requisito o notas
+vinculadas a los casos de uso correspondientes), según lo exige la Fase~5
+de la guía. Esta captura es parte de las evidencias de uso del entorno
+evaluadas en el criterio C6.}
+
+\begin{figure}[H]
+  \centering
+  \fbox{\parbox{0.85\textwidth}{\centering\vspace{2.5cm}
+    \textit{[Insertar captura: user stories registradas y vinculadas en la herramienta CASE]}
+  \vspace{2.5cm}}}
+  \caption{User stories US-01, US-02 y US-03 registradas en el modelo CASE.}
+  \label{fig:us_case}
+\end{figure}
+
+% ── Anexo C: Declaración de Uso de IA ───────────────────────
+\subsection{Declaración de Uso de Inteligencia Artificial}
+\label{app:ia}
+
+\guia{Integrante 1 -- Analista Líder}{%
+Completar la tabla indicando qué herramientas de IA se usaron,
+para qué tarea específica y en qué sección del informe.
+El equipo es responsable de la veracidad, coherencia y originalidad
+del contenido final entregado.}
+
+\begin{table}[H]
+\begin{tabularx}{\textwidth}{|l|X|l|}
+\hline
+\textbf{Herramienta} & \textbf{Uso específico} & \textbf{Sección(es)} \\
+\hline
+ &  & \\
+\hline
+ &  & \\
+\hline
+\end{tabularx}
+\end{table}
+
+\noindent El equipo es responsable de la veracidad, coherencia y
+originalidad del contenido final entregado.
+
+\end{document}
